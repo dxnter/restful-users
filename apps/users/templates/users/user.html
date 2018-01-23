@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Users</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> {% load static %}
+    <link rel="stylesheet" href="{% static 'users/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-4 text-center">{{current_user.first_name}} {{current_user.last_name}}</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Full Name</th>
+                            <td>{{current_user.first_name}} {{current_user.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email</th>
+                            <td>{{current_user.email}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Created At</th>
+                            <td>{{current_user.created_at}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" href="{% url 'edit' id=current_user.id %}">Edit</a>
+                <nav class="nav">
+                    <a class="nav-link" href="/">Go Back</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
